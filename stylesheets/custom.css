@@ -1,0 +1,11 @@
+ul.post-list li {
+  list-style: none;
+  display: block;
+  margin-top: 1px;
+  margin-bottom: 1px;
+  padding-top: 0;
+}
+
+li.post-link {
+  padding-left: 10px;
+}

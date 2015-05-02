@@ -121,7 +121,7 @@ header ul.buttons {
   width:270px;
 }
 
-header li {
+header ul.buttons li {
   width:89px;
   float:left;
   border-right:1px solid #d2d2d2;
