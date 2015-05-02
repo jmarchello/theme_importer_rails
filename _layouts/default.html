@@ -5,10 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <title>Bootstrapify by jmarchello</title>
 
-    <link rel="stylesheet" href="{{ site.url }}/stylesheets/styles.css">
+    <!-- <link rel="stylesheet" href="{{ site.url }}/stylesheets/styles.css">
     <link rel="stylesheet" href="{{ site.url }}/stylesheets/custom.css">
-    <link rel="stylesheet" href="{{ site.url }}/stylesheets/pygment_trac.css">
+    <link rel="stylesheet" href="{{ site.url }}/stylesheets/pygment_trac.css"> -->
+    <link rel="stylesheet" href="{{ "/stylesheets/styles.css" | prepend: site.baseurl }}">
+    <link rel="stylesheet" href="{{ "/stylesheets/custom.css" | prepend: site.baseurl }}">
+    <link rel="stylesheet" href="{{ "/stylesheets/pygment_trac.css" | prepend: site.baseurl }}">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -44,7 +50,7 @@
         <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
       </footer>
     </div>
-    <script src="{{ site.url }}javascripts/scale.fix.js"></script>
+    <script src="{{ "/javascripts/scale.fix.js" | prepend: site.baseurl }}"></script>
 
   </body>
 </html>
