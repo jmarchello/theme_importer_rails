@@ -18,15 +18,23 @@
         <h1>Bootstrapify</h1>
         <p>A Ruby gem for painlessly importing Bootstrap Themes into the Rails Asset Pipeline</p>
 
-        <p class="view"><a href="https://github.com/jmarchello/bootstrapify">View the Project on GitHub <small>jmarchello/bootstrapify</small></a></p>
-
+        <!-- <p class="view"><a href="https://github.com/jmarchello/bootstrapify">View the Project on GitHub <small>jmarchello/bootstrapify</small></a></p> -->
 
         <ul>
+          {% for post in site.posts %}
+            <li>
+              <a href="{{ post.url }}">{{ post.title }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+
+        <!-- <ul class="buttons">
           <li><a href="https://github.com/jmarchello/bootstrapify/zipball/master">Download <strong>ZIP File</strong></a></li>
           <li><a href="https://github.com/jmarchello/bootstrapify/tarball/master">Download <strong>TAR Ball</strong></a></li>
           <li><a href="https://github.com/jmarchello/bootstrapify">View On <strong>GitHub</strong></a></li>
-        </ul>
+        </ul> -->
       </header>
+
       <section>
         <h1>
 <a id="welcome-to-the-project-blog-of-bootstrapify" class="anchor" href="#welcome-to-the-project-blog-of-bootstrapify" aria-hidden="true"><span class="octicon octicon-link"></span></a>Welcome to the Project blog of Bootstrapify.</h1>
@@ -52,6 +60,6 @@ Josh</p>
       </footer>
     </div>
     <script src="javascripts/scale.fix.js"></script>
-    
+
   </body>
 </html>
