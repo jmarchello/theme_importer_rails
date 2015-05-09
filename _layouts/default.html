@@ -34,7 +34,7 @@
                 <li><h2>Posts</h2></li>
               {% for post in site.posts %}
                 <li class="post-link">
-                  <a href="{{ post.url }}">{{ post.title }}</a>
+                  <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
                 </li>
               {% endfor %}
             </ul>
