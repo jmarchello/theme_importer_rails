@@ -28,7 +28,7 @@ Before wrapping up, I'd like to mention which testing framework I've decided to 
 > rspec is a testing DSL. minitest is ruby.
 >-- Adam Hawkins, "Bow Before MiniTest"
 
-A DLS is a "domain specific language", which means that its a language written within a specific scope. In other words, rspec has devised it's own language for testing, why minitest uses common ruby syntax. Why does this matter? For some it may not, but for me, I've learned that the more obvious your code is, the better it is to work with. Being a Rails developer, I'm used to things happening "automagically". But i'd prefer to know what's going un under the hood. That is why I prefer minitest, one can see what exactly it is doing in plain old ruby language.
+A DSL is a "domain specific language", which means that its a language written within a specific scope. In other words, rspec has devised it's own language for testing, why minitest uses common ruby syntax. Why does this matter? For some it may not, but for me, I've learned that the more obvious your code is, the better it is to work with. Being a Rails developer, I'm used to things happening "automagically". But i'd prefer to know what's going un under the hood. That is why I prefer minitest, one can see what exactly it is doing in plain old ruby language.
 
 So that's TDD as I see it, and I can't wait to get my hand dirty trying it out!
 
