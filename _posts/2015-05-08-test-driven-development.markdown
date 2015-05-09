@@ -5,7 +5,7 @@ date: "2015-05-08 23:10"
 
 # Test Driven Development (TDD)
 
-After some careful consideration, We've decided that linear approach in Phase 1 would not be a wise choice. Software development is just too variable to have everything planned out before any code is written. As one works they tend to find new problems and new solutions. Because of this we are taking a more agile approach and focusing on Test Driven Development.
+After some careful consideration, We've decided that a linear approach in Phase 1 would not be a wise choice. Software development is just too variable to have everything planned out before any code is written. As one works they tend to find new problems and new solutions. Because of this we are taking a more agile approach and focusing on Test Driven Development.
 
 ## What is TDD?
 If you've never heard of Test Driven Development (TDD), than allow me to explain. TDD is a software engineering philosophy that uses tests to specify behavioral and functional requirements of an application.
