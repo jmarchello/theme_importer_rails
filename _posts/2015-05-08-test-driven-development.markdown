@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Test Driven Development"
 date: "2015-05-08 23:10"
 ---
