@@ -27,7 +27,7 @@
 
         <!-- <p class="view"><a href="https://github.com/jmarchello/bootstrapify">View the Project on GitHub <small>jmarchello/bootstrapify</small></a></p> -->
 
-        <h3><a href="/index.html">Home</a></h3>
+        <h3><a href="{{ "/index.html" | prepend: site.baseurl }}">Home</a></h3>
         <div>
           {% if site.posts.size > 0 %}
             <ul class="post-list">
