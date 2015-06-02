@@ -7,11 +7,10 @@ require "theme_importer_rails/version"
 Gem::Specification.new do |s|
   s.name        = "theme_importer_rails"
   s.version     = ThemeImporterRails::VERSION
-  s.authors     = ["Josh Marchello"]
+  s.authors     = ["Josh Marchello, Brandon Peine"]
   s.email       = ["jraymarchello@gmail.com"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of ThemeImporterRails."
-  s.description = "TODO: Description of ThemeImporterRails."
+  s.summary     = "A gem for painlessly importing themes into the rails asset pipeline."
+  s.description = "A gem for painlessly importing themes into the rails asset pipeline."
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
