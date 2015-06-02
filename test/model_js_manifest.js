@@ -1,0 +1,9 @@
+//= require bootstrap.js
+//= require bootstrap.min.js
+//= require cbpAnimatedHeader.js
+//= require cbpAnimatedHeader.min.js
+//= require classie.js
+//= require contact_me.js
+//= require freelancer.js
+//= require jqBootstrapValidation.js
+//= require jquery.js
