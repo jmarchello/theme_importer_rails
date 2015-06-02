@@ -1,6 +1,3 @@
-require "minitest/autorun"
-require "file_sorter.rb"
-
 class FileSorterTest < Minitest::Test
   def setup
     Dir.chdir("test/test_app")

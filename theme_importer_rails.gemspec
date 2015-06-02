@@ -7,16 +7,15 @@ require "theme_importer_rails/version"
 Gem::Specification.new do |s|
   s.name        = "theme_importer_rails"
   s.version     = ThemeImporterRails::VERSION
-  s.authors     = ["Josh Marchello, Brandon Peine"]
+  s.authors     = ["Josh Marchello"]
   s.email       = ["jraymarchello@gmail.com"]
-  s.summary     = "Themes + Rails = :)"
-  s.description = "A Ruby gem for painlessly importing themes into the Rails Asset Pipeline"
+  s.homepage    = "TODO"
+  s.summary     = "TODO: Summary of ThemeImporterRails."
+  s.description = "TODO: Description of ThemeImporterRails."
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
   s.test_files = Dir["test/**/*"]
 
   s.add_dependency "rails", "~> 4.2.1"
-
-  s.add_development_dependency "sqlite3"
 end
