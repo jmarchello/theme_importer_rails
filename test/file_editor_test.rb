@@ -12,9 +12,9 @@ class FileEditorTest < ActiveSupport::TestCase
     FileUtils.rm_rf("#{Rails.root}/vendor/assets/imported_theme") if Dir.exist?("#{Rails.root}/vendor/assets/imported_theme")
   end
 
-  def test_edit_urls
+  def test_edit_urls_in_css_file
     file = "#{Rails.root}/vendor/assets/imported_theme/stylesheets/bootstrap.css"
-    @file_editor.edit_urls(file)
+    @file_editor.edit_urls_in_css_file(file)
     assert(diff(file, 'test/edited_bootstrap.css'))
   end
 end

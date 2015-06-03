@@ -1,6 +1,6 @@
 
 class FileEditor
-  def edit_urls(file)
+  def edit_urls_in_css_file(file)
     pattern = /(?<=url\(('|"))(.*?)(?=('|")\))/
     temp = Tempfile.new("fonts2.css")
     File.open(file, "r+") do |f|

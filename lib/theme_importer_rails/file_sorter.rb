@@ -1,6 +1,11 @@
 require "FileUtils"
 
 class FileSorter
+  attr_reader :css_files
+  attr_reader :js_files
+  attr_reader :font_files
+  attr_reader :images
+
   private
 
   @theme_orig
