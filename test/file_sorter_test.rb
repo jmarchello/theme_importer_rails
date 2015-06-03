@@ -5,13 +5,11 @@ class FileSorterTest < ActiveSupport::TestCase
   def setup
     @theme_orig = "test/theme"
     @file_sorter = FileSorter.new(@theme_orig)
-    @font_extensions = @file_sorter.instance_variable_get(:@font_extensions)
-    @image_extensions = @file_sorter.instance_variable_get(:@image_extensions)
   end
 
   def teardown
-    if Dir.exist?("#{Rails.root}/vender/assets/imported_theme")
-      FileUtils.rm_rf("#{Rails.root}/vender/assets/imported_theme")
+    if Dir.exist?("#{Rails.root}/vendor/assets/imported_theme")
+      FileUtils.rm_rf("#{Rails.root}/vendor/assets/imported_theme")
     end
 
     if Dir.exist?("#{Rails.root}/public/assets/imported_theme")
@@ -49,8 +47,8 @@ class FileSorterTest < ActiveSupport::TestCase
 
   def test_create_imported_theme_dir
     @file_sorter.create_imported_theme_dir
-    assert(Dir.exists?("#{Rails.root}/vender/assets"), "vender/assets does not exist.")
-    assert(Dir.exists?("#{Rails.root}/vender/assets/imported_theme"), "vender/assets/imported_theme does not exist.")
+    assert(Dir.exists?("#{Rails.root}/vendor/assets"), "vendor/assets does not exist.")
+    assert(Dir.exists?("#{Rails.root}/vendor/assets/imported_theme"), "vendor/assets/imported_theme does not exist.")
     assert(Dir.exists?("#{Rails.root}/public/assets"), "public/assets does not exist.")
     assert(Dir.exists?("#{Rails.root}/public/assets/imported_theme"), "public/assert/imported_theme does not exist.")
   end
@@ -61,7 +59,7 @@ class FileSorterTest < ActiveSupport::TestCase
     @file_sorter.move_css_files
     css_files.each do |file|
       filename = File.basename(file)
-      assert(File.exists?("#{Rails.root}/vender/assets/imported_theme/stylesheets/#{filename}"), "file #{filename} is not in stylesheets directory.")
+      assert(File.exists?("#{Rails.root}/vendor/assets/imported_theme/stylesheets/#{filename}"), "file #{filename} is not in stylesheets directory.")
     end
   end
 
@@ -71,20 +69,20 @@ class FileSorterTest < ActiveSupport::TestCase
     @file_sorter.move_js_files
     js_files.each do |file|
       filename = File.basename(file)
-      assert(File.exists?("#{Rails.root}/vender/assets/imported_theme/javascripts/#{filename}"), "file #{filename} is not in javascripts directory.")
+      assert(File.exists?("#{Rails.root}/vendor/assets/imported_theme/javascripts/#{filename}"), "file #{filename} is not in javascripts directory.")
     end
   end
 
   def test_generate_css_manifest
     @file_sorter.find_css
     @file_sorter.generate_css_manifest
-    assert(FileUtils.compare_file("test/model_css_manifest.css" ,"#{Rails.root}/vender/assets/imported_theme/imported_theme.css"))
+    assert(FileUtils.compare_file("test/model_css_manifest.css" ,"#{Rails.root}/vendor/assets/imported_theme/imported_theme.css"))
   end
 
   def test_generate_js_manifest
     @file_sorter.find_js
     @file_sorter.generate_js_manifest
-    assert(FileUtils.compare_file("test/model_js_manifest.js" ,"#{Rails.root}/vender/assets/imported_theme/imported_theme.js"))
+    assert(FileUtils.compare_file("test/model_js_manifest.js" ,"#{Rails.root}/vendor/assets/imported_theme/imported_theme.js"))
   end
 
   def test_find_fonts_files
@@ -92,7 +90,7 @@ class FileSorterTest < ActiveSupport::TestCase
     font_files = @file_sorter.instance_variable_get(:@font_files)
     refute_empty(font_files)
     font_files.each do |font_file|
-      assert(@font_extensions.include? File.extname(font_file))
+      assert(FONT_EXTENSIONS.include? File.extname(font_file))
     end
   end
 
@@ -111,7 +109,7 @@ class FileSorterTest < ActiveSupport::TestCase
     images = @file_sorter.instance_variable_get(:@images)
     refute_empty(images)
     images.each do |image|
-      assert(@image_extensions.include? File.extname(image))
+      assert(IMAGE_EXTENSIONS.include? File.extname(image))
     end
   end
 

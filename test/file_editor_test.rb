@@ -2,14 +2,19 @@ require "test_helper"
 
 class FileEditorTest < ActiveSupport::TestCase
   def setup
-    file_sorter = FileSorter.new("test/theme")
-    file_sorter.find_css
-    file_sorter.move_css_files
+    @file_sorter = FileSorter.new('test/theme')
+    @file_sorter.find_css
+    @file_sorter.move_css_files
+    @file_editor = FileEditor.new
   end
 
   def teardown
-    if Dir.exist?("#{Rails.root}/vender/assets/imported_theme")
-      FileUtils.rm_rf("#{Rails.root}/vender/assets/imported_theme")
-    end
+    FileUtils.rm_rf("#{Rails.root}/vendor/assets/imported_theme") if Dir.exist?("#{Rails.root}/vendor/assets/imported_theme")
+  end
+
+  def test_edit_urls
+    file = "#{Rails.root}/vendor/assets/imported_theme/stylesheets/bootstrap.css"
+    @file_editor.edit_urls(file)
+    assert(diff(file, 'test/edited_bootstrap.css'))
   end
 end
