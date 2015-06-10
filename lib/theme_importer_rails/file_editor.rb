@@ -1,4 +1,3 @@
-
 class FileEditor
   def edit_urls_in_css_file(file)
     pattern = /(?<=url\(('|"))(.*?)(?=('|")\))/
@@ -12,7 +11,9 @@ class FileEditor
 
   private
 
-  def asset_type(match)
-    FONT_EXTENSIONS.include? File.extname(match.to_s) ? 'fonts' : 'images'
+  def asset_type(file_name)
+    file_extension = /(?<=\w)\.\D+?\d?(?=(#|\?|$))/.match(file_name.to_s)
+
+    (FONT_EXTENSIONS.include? file_extension.to_s) ? 'fonts' : 'images'
   end
 end

@@ -1,5 +1,3 @@
-require "FileUtils"
-
 class FileSorter
   attr_reader :css_files
   attr_reader :js_files
@@ -10,6 +8,7 @@ class FileSorter
 
   @theme_orig
   @css_files
+  @sass_files
   @js_files
   @font_files
   @images
@@ -21,7 +20,14 @@ class FileSorter
   end
 
   def find_css
-    @css_files = Dir.glob("#{@theme_orig}/**/*{.css,.scss}")
+    @css_files = Dir.glob("#{@theme_orig}/**/*.css")
+  end
+
+  def find_sass
+    @sass_files = Dir.glob("#{@theme_orig}/**/*.scss")
+
+    #ignore partials
+    @sass_files.delete_if {|file| /^_.*/.match(File.basename(file))}
   end
 
   def find_js
@@ -116,6 +122,16 @@ class FileSorter
     end
   end
 
+  def compile_and_move_sass
+    files_to_compile = []
+    @sass_files.each do |sass_file|
+      file_name = File.basename(sass_file, '.*')
+      files_to_compile << [sass_file, "#{Rails.root}/vendor/assets/imported_theme/stylesheets/#{file_name}.css"]
+    end
+    Sass::Plugin.options[:cache] = false
+    Sass::Plugin.update_stylesheets(files_to_compile)
+  end
+
   def generate_css_manifest
     unless @css_files.nil?
       create_imported_theme_dir
@@ -125,6 +141,10 @@ class FileSorter
       @css_files.each do |css_file|
         css_file_name = File.basename(css_file)
         manifest_file.puts("*= require stylesheets/#{css_file_name}")
+      end
+      @sass_files.each do |sass_file|
+        sass_file_name = File.basename(sass_file, '.*')
+        manifest_file.puts("*= require stylesheets/#{sass_file_name}.css")
       end
       manifest_file.puts("*/")
       manifest_file.close

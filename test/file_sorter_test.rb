@@ -1,5 +1,4 @@
 require "test_helper"
-require "fileutils"
 
 class FileSorterTest < ActiveSupport::TestCase
   def setup
@@ -21,6 +20,22 @@ class FileSorterTest < ActiveSupport::TestCase
     @file_sorter.find_css
     css_files = @file_sorter.instance_variable_get(:@css_files)
     refute_empty(css_files)
+  end
+
+  def test_find_sass
+    @file_sorter.find_sass
+    sass_files = @file_sorter.instance_variable_get(:@sass_files)
+    refute_empty(sass_files)
+  end
+
+  def test_compile_and_move_sass
+    @file_sorter.find_sass
+    @file_sorter.compile_and_move_sass
+    sass_files = @file_sorter.instance_variable_get(:@sass_files)
+    sass_files.each do |file|
+      filename = File.basename(file, '.*')
+      assert(File.exists?("#{Rails.root}/vendor/assets/imported_theme/stylesheets/#{filename}.css"), "file #{filename}.css is not in javascripts directory.")
+    end
   end
 
   def test_find_css_returns_only_css
@@ -75,6 +90,7 @@ class FileSorterTest < ActiveSupport::TestCase
 
   def test_generate_css_manifest
     @file_sorter.find_css
+    @file_sorter.find_sass
     @file_sorter.generate_css_manifest
     assert(FileUtils.compare_file("test/model_css_manifest.css" ,"#{Rails.root}/vendor/assets/imported_theme/imported_theme.css"))
   end

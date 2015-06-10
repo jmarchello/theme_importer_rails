@@ -37,5 +37,16 @@ class ThemeImporterRailsTest < ActiveSupport::TestCase
       assert(File.exists?("#{Rails.root}/public/assets/imported_theme/images/#{file_name}"), "file #{file_name} is not found in images")
     end
 
+    assert(File.exists?("#{Rails.root}/vendor/assets/imported_theme/imported_theme.css"), "theme css manifest is not found")
+    assert(File.exists?("#{Rails.root}/vendor/assets/imported_theme/imported_theme.js"), "theme js manifest is not found")
+
+
+  end
+
+  test "cleaning out imported theme" do
+    ThemeImporterRails.import_theme('test/theme')
+    ThemeImporterRails.clean
+    assert(!Dir.exist?("#{Rails.root}/vendor/assets/imported_theme"), "vendor/assets/imported_theme was not cleaned out")
+    assert(!Dir.exist?("#{Rails.root}/public/assets/imported_theme"), "public/assets/imported_theme was not cleaned out")
   end
 end

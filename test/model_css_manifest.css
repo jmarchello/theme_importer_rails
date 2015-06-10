@@ -4,17 +4,5 @@
 *= require stylesheets/freelancer.css
 *= require stylesheets/font-awesome.css
 *= require stylesheets/font-awesome.min.css
-*= require stylesheets/_bordered-pulled.scss
-*= require stylesheets/_core.scss
-*= require stylesheets/_fixed-width.scss
-*= require stylesheets/_icons.scss
-*= require stylesheets/_larger.scss
-*= require stylesheets/_list.scss
-*= require stylesheets/_mixins.scss
-*= require stylesheets/_path.scss
-*= require stylesheets/_rotated-flipped.scss
-*= require stylesheets/_spinning.scss
-*= require stylesheets/_stacked.scss
-*= require stylesheets/_variables.scss
-*= require stylesheets/font-awesome.scss
+*= require stylesheets/font-awesome.css
 */
