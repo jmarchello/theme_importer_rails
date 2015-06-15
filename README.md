@@ -1,5 +1,7 @@
 # Theme Importer
 
+[![Gem Version](https://badge.fury.io/rb/theme_importer_rails.svg)](http://badge.fury.io/rb/theme_importer_rails)
+
 This is a Rails Gem for painlessly importing themes into the asset pipeline. This Gem saves you valuable time by allowing you to import a theme in two simple steps.
 
 ## Installation
