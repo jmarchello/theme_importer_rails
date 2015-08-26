@@ -48,9 +48,9 @@ $ rake theme_importer:clean
 
 When the import task runs, it does the following:
 
-1. Scans the theme directory for all CSS, SASS, JavaScript, images, and fonts.
+1. Scans the theme directory for all CSS, SASS, JavaScript, images, and fonts
 
-2. Compiles SASS files into CSS, and moves all CSS files to `vender/assets/imported_theme/stylesheets`.
+2. Compiles SASS files into CSS, and moves all CSS files to `vender/assets/imported_theme/stylesheets`
 
 3. Moves JavaScript files into `vender/assets/imported_theme/javascripts`
 
@@ -58,4 +58,6 @@ When the import task runs, it does the following:
 
 5. Moves images into `public/assets/imported_theme/images`
 
-6. Generates manifest files for stylesheets and javascripts.
+6. Edits javascipt and stylesheet files to find fonts and images in `public/assets/imported_theme/` directory
+
+7. Generates manifest files for stylesheets and javascripts.
